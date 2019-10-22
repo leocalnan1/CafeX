@@ -1,0 +1,118 @@
+import scala.io.StdIn.{readLine, readInt}
+import scala.collection.mutable.ListBuffer
+
+object CafeX {
+
+  def main(args: Array[String]): Unit = {
+
+  }
+  println("\nMenu: Enter the number for each product ordered. \nAs an example, for Cola enter '1'.\n")
+  println("1) Cola - 50p\n2) Coffee - £1.00\n3) Cheese Sandwich (cold) - £2.00\n4) Steak Sandwich (hot) - £4.50\n")
+  println("Cold food: +10% service charge\nHot food: +20% service charge")
+  // FIRST TASK
+
+  val orderList = new ListBuffer()
+
+  var i = 0
+// while loop to order as many items as you like
+  while (i == 0) {
+
+    print("\nDo you want to order?\nType 'yes' or 'no': ")
+
+    val decision = readLine
+    var menu = 0
+    //choose whether you want to order anything
+    if (decision == "yes") {
+
+      print("\nType in the number of the order: ")
+
+      //to type the number of the selection you are making
+
+      var menu: Int = readInt
+
+      menu match {
+        case 1 => "cola"
+        case 2 => "coffee"
+        case 3 => "Cheese Sandwich"
+        case 4 => "Steak Sandwich"
+        case _ => "other"
+      }
+
+      val menuMap = Map
+      ( 1 -> "cola",
+        2 -> "coffee",
+        3 -> "Cheese Sandwich",
+        4 -> "Steak Sandwich")
+
+      //get the correct
+      var getFromMenu = menuMap.get(menu)
+
+      orderList.add(menu)
+
+    }
+    if (decision == "no") {
+
+      println("End of order.")
+
+      i += 1
+
+    }
+
+  }
+
+  orderList
+
+  //Prices
+  val pricesMap = Map
+  ( "cola" -> 0.5,
+    "coffee" -> 1,
+    "Cheese Sandwich" -> 2,
+    "Steak Sandwich" -> 4.5)
+
+  var sum = 0
+
+  // Unsure how to associate pricesMap with orderList so the elements in orderList are numbers
+
+  //read length of List
+  var orderListLength = orderList.length
+
+  var j = 0
+  //sum all elements in orderList together, haven't fully worked out the logic for this
+  while(j < orderListLength) {
+
+    var sum = orderList(j) + orderList(j+1)
+
+    j += 1
+
+  }
+
+  sum
+
+
+  //SECOND TASK
+
+  // I am not able to determine with an if statement whether the orderList contains or doesn't contain an individual
+  // element, although with more time I'm sure I would be able to
+  if(orderList doesnt contain cheeseSandwich || orderList doesnt contain steakSandwich) {
+    var finalSum = sum
+  }
+
+  if(orderList contains steak sandwich && sum <= 100) {
+    var sumWith20PCServiceCharge = sum*1.2
+    var finalSum = sumWith20PCServiceCharge
+  }
+
+  if(orderList contains cheese sandwich && orderList doesnt contain steak sandwich) {
+    var sumWith10PCServiceCharge = sum*1.1
+    var math1 = sumWith10PCServiceCharge*100
+    var math2 = math1.toInt
+    var math3 = math2.toDouble
+    var finalSum = math3/100
+  }
+
+  println(finalSum)
+
+}
+
+
+// I have not yet applied Test Driven Development
